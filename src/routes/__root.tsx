@@ -88,10 +88,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "TripMind AI — Plan smarter trips with AI" },
       {
         property: "og:description",
-        content: "AI-powered travel planning, budgets, and itineraries in one place.",
+        content: "TripMind AI is your intelligent travel co-pilot. Generate day-by-day itineraries, track budgets, and discover destinations in seconds.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "TripMind AI — Plan smarter trips with AI" },
+      { name: "twitter:description", content: "TripMind AI is your intelligent travel co-pilot. Generate day-by-day itineraries, track budgets, and discover destinations in seconds." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dafad81c-1542-4571-8c1e-d4ca36aa3d15/id-preview-a788bf16--b36443e5-9ff5-4cf6-a6da-ecb09ff8c0e0.lovable.app-1784716245367.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dafad81c-1542-4571-8c1e-d4ca36aa3d15/id-preview-a788bf16--b36443e5-9ff5-4cf6-a6da-ecb09ff8c0e0.lovable.app-1784716245367.png" },
     ],
     links: [
       {
