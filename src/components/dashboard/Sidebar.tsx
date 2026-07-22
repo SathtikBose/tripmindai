@@ -2,7 +2,8 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { BarChart3, Bell, Bot, Compass, Heart, LayoutDashboard, ListChecks, LogOut, Map, Settings, Sparkles, Wallet } from "lucide-react";
 import { Brand } from "@/components/brand";
 
-const items = [
+type NavItem = { to: string; label: string; icon: typeof LayoutDashboard; exact?: boolean };
+const items: NavItem[] = [
   { to: "/app", label: "Overview", icon: LayoutDashboard, exact: true },
   { to: "/app/trips", label: "Trips", icon: Map },
   { to: "/app/plan", label: "AI Planner", icon: Sparkles },
@@ -11,7 +12,7 @@ const items = [
   { to: "/app/budget", label: "Budget", icon: Wallet },
   { to: "/app/checklist", label: "Checklist", icon: ListChecks },
   { to: "/app/analytics", label: "Analytics", icon: BarChart3 },
-] as const;
+];
 
 export function Sidebar() {
   const path = useRouterState({ select: (s) => s.location.pathname });
@@ -22,7 +23,7 @@ export function Sidebar() {
         {items.map((it) => {
           const active = it.exact ? path === it.to : path.startsWith(it.to);
           return (
-            <Link key={it.to} to={it.to} className={`flex items-center gap-3 rounded-xl px-3 py-2 text-sm transition ${active ? "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm" : "text-muted-foreground hover:bg-sidebar-accent/60 hover:text-foreground"}`}>
+          <Link key={it.to} to={it.to as any} className={`flex items-center gap-3 rounded-xl px-3 py-2 text-sm transition ${active ? "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm" : "text-muted-foreground hover:bg-sidebar-accent/60 hover:text-foreground"}`}>
               <it.icon className="size-4" />{it.label}
               {active && <span className="ml-auto size-1.5 rounded-full bg-primary" />}
             </Link>
